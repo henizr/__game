@@ -105,13 +105,17 @@ class Picture:
 class Bms(Picture):
     def __init__(
             self,
-            image: Path = IMG / "v",
+            window: pygame.Surface,
+            image: Path = IMG / "bms.png",
             x: int=100,
             y: int=100,
             width: int=80,
             height: int=100
     ) -> None:
         super().__init__()
+        bms = pygame.image.load(image)
+        bms = pygame.transform.scale(bms, (width, height))
+        window.blit(bms, (x, y))
 
 
 
